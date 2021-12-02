@@ -4,7 +4,7 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/react'
-import { ContentMyRoutes } from './ContentMyRoutes';
+import { ContentMyRoutes } from '../../components/contentMyRoutes';
 
 export default function Myroutes(){
   

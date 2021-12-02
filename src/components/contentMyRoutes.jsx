@@ -5,8 +5,8 @@ import {
   Text,
   VStack
 } from '@chakra-ui/react';
-import { BlocoDeRoute } from './BlocoDeRoute';
 
+import { BlocoDeRoute } from '../components/BlocoDeRoute';
 
 export const ContentMyRoutes = () =>{
 
