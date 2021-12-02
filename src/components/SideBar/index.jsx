@@ -47,10 +47,9 @@ export const Sidebar = ({ isopenSidebar, toogleSideBar }) => {
 
           <VStack px="8" spacing="2" h="calc(100vh - 70px)" align="self-start">
             <Box mt="8">
-              {/* <NavSection title="GERAL"> */}
-              {/* </NavSection>           */}
-
-                {/* <NavLink myIcon={GiPathDistance} myHref="/myroutes">Rotas</NavLink> */}
+              <NavSection title="GERAL">
+                <NavLink myIcon={GiPathDistance} myHref="/myroutes">Rotas</NavLink>
+              </NavSection>          
             </Box>
           </VStack>
 
