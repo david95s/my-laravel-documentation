@@ -4,6 +4,7 @@ import { theme, themeDark } from "../../styles/theme";
 import Header from '../components/Header';
 import { Sidebar } from '../components/SideBar';
 
+import '../../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   const [theDarkTheme, setTheDarkTheme] = React.useState(true);
