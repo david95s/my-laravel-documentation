@@ -4,7 +4,8 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/react'
-import { ContentMyRoutes } from '../../components/contentMyRoutes';
+// import { ContentMyRoutes } from '../components/ContentMyRoutes';
+import {ContentMyRoutes } from '../components/ContentMyRoutes';
 
 export default function Myroutes(){
   
@@ -24,7 +25,7 @@ export default function Myroutes(){
       >
         <Box
           width="100%"
-          maxW="1200px"
+          maxW="1300px"
           margin={["80px", "80px 10px","80px 10px", "80px 10px", "80px 10px", "80px"]}
         >
           <Heading fontWeight="100" color="gray.400" mb="20px">

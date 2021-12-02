@@ -19,7 +19,7 @@ export const BlocoDeRoute = ({ isTheView, typeRequisition, thePath, whatReturned
 
 
 
-  if(typeRequisition?.type === "redirect"){
+  if(typeRequisition?.functionType === "redirect"){
     return (
       <Box {...rest} bg="#252a37" p="8" lineHeight="7" letterSpacing="3px" borderRadius="4" >
         <Text> 
@@ -119,7 +119,16 @@ export const BlocoDeRoute = ({ isTheView, typeRequisition, thePath, whatReturned
         <span style={theGold}>{`'${thePath}'`}</span>
         <span>, </span> 
         <span style={thePink}>function</span>
-        <span> () {"{"}</span>
+        <span> (</span>
+        {typeRequisition?.functionType === "param" && (
+          "$id"
+        )}
+        {typeRequisition?.functionType === "paramOpcional" && (
+          "$id = null"
+        )}
+        <span>) </span>
+
+        <span>{"{"}</span> 
       </Text>
       <Text style={{marginLeft:"8px"}}> 
         <span style={thePink}>return </span>
@@ -143,7 +152,7 @@ export const BlocoDeRoute = ({ isTheView, typeRequisition, thePath, whatReturned
       </Text>
       <Text> 
         {"}"})
-        {typeRequisition?.type === "nameRedirect" && (
+        {typeRequisition?.functionType === "nameRedirect" && (
           <span>
             <span style={thePink}>-</span>
             <span style={{color: "#9443c3" , position: 'relative', top:"2px"}}>{">"}</span>

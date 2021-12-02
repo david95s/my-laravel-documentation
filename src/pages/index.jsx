@@ -26,7 +26,7 @@ export default function Home() {
           <Text  fontSize="1rem" color="gray.400" mb="1">
             Essa documentação foi desenvolvida para me auxiliar nos meus projetos.
           </Text>
-          <Text  fontSize="1rem" color="gray.200"  mb="1">
+          <Text  fontSize="1.2rem" color="gray.200"  mb="1">
             Mas nada impede q você estude por ela. 😉
           </Text>
           <Text color="gray.400">

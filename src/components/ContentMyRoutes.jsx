@@ -6,11 +6,19 @@ import {
   VStack
 } from '@chakra-ui/react';
 
-import { BlocoDeRoute } from '../components/BlocoDeRoute';
+import { BlocoDeRoute } from './BlocoDeRoute';
 
 export const ContentMyRoutes = () =>{
 
-  const theEnfase = {margin: "5px", padding:"8px 10px", background: "black", color:"#ccc", borderRadius: "8px"}
+  const theEnfase = { 
+    margin: "5px",
+    padding:"7px 10px",
+    background: "black",
+    color:"#ccc",
+    borderRadius: "8px",
+    fontSize: "16px",
+    letterSpacing: "3px"
+  }
 
   return (
     <VStack  alignItems="start" spacing="48px" >
@@ -146,7 +154,8 @@ export const ContentMyRoutes = () =>{
               whatReturned="<h1>Aceito Qualquer tipo de rota</h1>"
               thePath="/profile"
               typeRequisition={{
-                type: "redirect",
+                type: "get",
+                functionType: "redirect",
                 pathOrName: {
                   type: 'path',
                   text: "/profile/verify-auth"
@@ -194,7 +203,8 @@ export const ContentMyRoutes = () =>{
               whatReturned="Vou verificar o auth de profile"
               thePath="/profile/verify-auth"
               typeRequisition={{
-                type: "nameRedirect",
+                type: "get",
+                functionType: "nameRedirect",
                 pathOrName: {
                   type: 'name',
                   text: "NomeDaRota"
@@ -219,10 +229,10 @@ export const ContentMyRoutes = () =>{
             <BlocoDeRoute 
               flex="1"
               h="150px"
-              whatReturned="Vou verificar o auth de profile"
               thePath="/profile"
               typeRequisition={{
-                type: "redirect",
+                type: "get",
+                functionType: "redirect",
                 pathOrName: {
                   type: 'name',
                   text: "NomeDaRota"
@@ -244,6 +254,55 @@ export const ContentMyRoutes = () =>{
           </Flex>
         </Box>
       </VStack>
+
+      <VStack w="100%" p="10" spacing="8" alignItems="start" bg="#12141d" border="solid 1px #181b29" borderRadius="8px">
+        <Box>
+          <Heading fontWeight="100" color="gray.400" fontSize="1.5rem" m="0px" mb="10px">
+            <Text as="span" color="laravelColor" fontSize="1rem" >#</Text>
+            <Text as="span" ml="4px">Parametro na requisição</Text>
+          </Heading>
+        </Box>
+        <Box lineHeight="35px" width="100%">
+          <Text color="gray.300">
+            Passando parametro na requisição.
+          </Text>
+          <Flex width="100%">
+            <BlocoDeRoute flex="1" h="150px" whatReturned="Rota Com Parametro => {$id}"thePath="/rota-com-param/{idpass}" typeRequisition={{
+              type: "get",
+              functionType: "param",
+            }} />
+            <Box width="40%" marginLeft="4">
+              <Text color="gray.500">
+                Nessa rota é obrigatória passar um parametro. 
+                O script retorná um erro , se por ventura o parametro <span style={theEnfase}>{`"idpass"`}</span>
+                não for passado
+                após <span style={theEnfase}>{`"/rota-com-param/"`}</span>
+              </Text>
+            </Box>
+          </Flex>
+        </Box>
+        <Box lineHeight="35px" width="100%">
+          <Text color="gray.300">
+            Parametro Opcional na requisição.
+          </Text>
+          <Flex width="100%">
+            <BlocoDeRoute flex="1" h="150px" whatReturned="Se houver param eu faço algo"thePath="/rota-com-param-opcional/{idpass?}" typeRequisition={{
+              type: "get",
+              functionType: "paramOpcional",
+            }} />
+            <Box width="33%" marginLeft="4">
+              <Text color="gray.500">
+                Aqui o parametro é opcional. 
+                Repare que o que muda na sintaxe é o simbolo de interrogação <span style={theEnfase}>{`"?"`}</span>
+                que é passado no final do idpass: 
+                <span style={theEnfase}>{`"{idpass?}"`}</span>
+                É importante passar o valor inicial de id, caso ele não exista, no ex ele tem val inicial de null.
+              </Text>
+            </Box>
+          </Flex>
+        </Box>
+      </VStack>
+
     </VStack>
   )
 }
