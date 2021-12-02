@@ -1,6 +1,9 @@
 import React from 'react';
 import { ChakraProvider, Box, Flex } from '@chakra-ui/react';
 import { theme, themeDark } from "../../styles/theme";
+import Header from '../components/Header';
+import { Sidebar } from '../components/SideBar';
+
 
 function MyApp({ Component, pageProps }) {
   const [theDarkTheme, setTheDarkTheme] = React.useState(true);
@@ -19,8 +22,17 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ChakraProvider theme={ theDarkTheme ? themeDark : theme}>
-      <Component {...pageProps} />
-      <h1>Teste</h1>
+      <Flex overflowY="hidden">
+        <Box>
+          <Sidebar isopenSidebar={isopenSidebar} toogleSideBar={toogleSideBar} />
+        </Box>
+        <Box style={{flex: 1}}>
+          
+          <Header theDarkTheme={theDarkTheme} toogleThemeToDark={toogleThemeToDark} isopenSidebar={isopenSidebar} toogleSideBar={toogleSideBar}/>
+          <Component {...pageProps} />
+
+        </Box>
+      </Flex>
     </ChakraProvider>
   )
 }
