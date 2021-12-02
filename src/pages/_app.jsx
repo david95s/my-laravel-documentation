@@ -20,6 +20,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={ theDarkTheme ? themeDark : theme}>
       <Component {...pageProps} />
+      <h1>Teste</h1>
     </ChakraProvider>
   )
 }
