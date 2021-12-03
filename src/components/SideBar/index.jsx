@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 
 import { VscChromeClose } from "react-icons/vsc";
-import { GiPathDistance } from "react-icons/gi";
+import { GiPathDistance, GiConsoleController } from "react-icons/gi";
 
 export const Sidebar = ({ isopenSidebar, toogleSideBar }) => {
 
@@ -46,8 +46,10 @@ export const Sidebar = ({ isopenSidebar, toogleSideBar }) => {
 
           <VStack px="8" spacing="2" h="calc(100vh - 70px)" align="self-start">
             <Box mt="8">
-              <NavSection title="GERAL">
-                <NavLink myIcon={GiPathDistance} myHref="/myroutes">Rotas</NavLink>
+              <NavSection title="ROUTES">
+                <NavLink myIcon={GiPathDistance} myHref="/routesbasic">Rotas | básico</NavLink>
+                <NavLink myIcon={GiConsoleController} myHref="/controllersroute">Rotas | controllers</NavLink>
+
               </NavSection>          
             </Box>
           </VStack>

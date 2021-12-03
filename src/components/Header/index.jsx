@@ -17,7 +17,15 @@ export default function Header({ toogleThemeToDark, theDarkTheme, isopenSidebar,
         </Flex>
       )}
       <Tooltip label='In progress....' >
-        <Button   colorScheme="dark" variant="outline" color="dark" position="absolute" right="55" top="4">
+        <Button   
+          colorScheme="dark"
+          variant="outline"
+          color="dark"
+          position="absolute"
+          right="55"
+          top="4"
+          _hover={{ cursor: 'not-allowed' }}
+        >
           {theDarkTheme ? "☀️" : "🌒"}
         </Button>
       </Tooltip>

@@ -35,7 +35,7 @@ export const BlocoDeRoute = ({ isTheView, typeRequisition, thePath, whatReturned
       </Text>
         {["/","limpeza", "bebidas"].map((item, index) => {
           return (
-            <Text key={item} ml="7" mt={index === 0 ? "2" : "5"}>
+            <div key={item} style={{marginLeft:"17px"}}>
               {RouteSpan()}
               <span style={theGreen}>get</span>
               <span>(</span>
@@ -53,7 +53,7 @@ export const BlocoDeRoute = ({ isTheView, typeRequisition, thePath, whatReturned
               <Text> 
                 {"}"});
               </Text>
-            </Text>
+            </div>
           )
         })}
       <Text> 

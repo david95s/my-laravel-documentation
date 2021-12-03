@@ -24,7 +24,7 @@ export const ActiveLink = ({ children, matchExactHref = false, ...rest } ) => {
   return (
     <Link {...rest}>
       { cloneElement(children, {
-        color: isActive ? "#ff69ff" : "gray.50"
+        color: isActive ? "#b943b9" : "gray.500"
       }) }
     </Link>
   )

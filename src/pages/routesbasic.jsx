@@ -21,12 +21,11 @@ export default function Myroutes(){
         h="calc(100vh - 70px)"
         overflowY="scroll"
         className="theScroll"
-        px="8"
       >
         <Box
-          width="100%"
-          maxW="1300px"
-          margin={["80px", "80px 10px","80px 10px", "80px 10px", "80px 10px", "80px"]}
+          width="90%"
+          maxW="1200px"
+          margin={["80px auto", "80px auto","80px auto", "80px auto", "80px auto", "80px auto"]}
         >
           <Heading fontWeight="100" color="gray.400" mb="20px">
             <Text as="span" color="laravelColor" fontSize="1.5rem" >#</Text>

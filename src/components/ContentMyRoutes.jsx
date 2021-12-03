@@ -22,17 +22,11 @@ export const ContentMyRoutes = () =>{
 
   return (
     <VStack  alignItems="start" spacing="48px" >
-      <VStack p="10" spacing="10" bg="#12141d" border="solid 1px #181b29"  borderRadius="8px">
-        <Box lineHeight="35px" >
-          <Text color="gray.300">
+      <VStack textAlign="left" p="10" spacing="10" bg="#12141d" border="solid 1px #181b29"  borderRadius="8px">
+        <Box lineHeight="35px" w="100%">
+          <Text color="gray.300" >
             <span>O arquivo que contem as configurações das rotas pode ser encontrado no path </span>
             <span style={theEnfase}>{`"/routes/web.php"`}</span>
-          </Text>
-          <Text color="gray.300">
-            <span >A forma mais simples de definir uma rota é fazendo no proprio arquivo.</span>
-            <span style={{margin: "5px"}}> Abaixo segue o exemplo mais simples, porém não recomendado,
-            servindo apenas por questão de conhecimento.
-            </span>
           </Text>
         </Box>
         <Box lineHeight="35px" w="100%">
@@ -56,7 +50,7 @@ export const ContentMyRoutes = () =>{
             Definindo uma rota do tipo POST.
           </Text>
           <Flex alignItems="center">
-            <BlocoDeRoute flex="1" h="150px" whatReturned="Terefa relacionado a formulário" thePath="/about" typeRequisition={{type: "post"}}/>
+            <BlocoDeRoute flex="1"  whatReturned="Terefa relacionado a formulário" thePath="/about" typeRequisition={{type: "post"}}/>
             <Box flex="1" marginLeft="8">
               <Text color="gray.500">
                 <span>Aq eu simplesmente retorno uma string, sempre que a rota bater em</span>
@@ -91,7 +85,7 @@ export const ContentMyRoutes = () =>{
             Definindo uma rota do tipo POST ou GET.
           </Text>
           <Flex width="100%">
-            <BlocoDeRoute flex="1" h="150px" whatReturned="<h1>Post ou GET</h1>" thePath="/about" typeRequisition={{type: "match", arrReq: ["post", "get"]}} />
+            <BlocoDeRoute flex="1"  whatReturned="<h1>Post ou GET</h1>" thePath="/about" typeRequisition={{type: "match", arrReq: ["post", "get"]}} />
             <Box width="40%" marginLeft="4">
               <Text color="gray.500">
                 Aq independente se for <span style={{color:"green"}}>GET </span> 
@@ -120,7 +114,7 @@ export const ContentMyRoutes = () =>{
             Definindo uma rota sendo de qualquer tipo.
           </Text>
           <Flex width="100%">
-            <BlocoDeRoute flex="1" h="150px" whatReturned="<h1>Aceito Qualquer tipo de rota</h1>" thePath="/produto" typeRequisition={{type: "any"}} />
+            <BlocoDeRoute flex="1"  whatReturned="<h1>Aceito Qualquer tipo de rota</h1>" thePath="/produto" typeRequisition={{type: "any"}} />
             <Box width="40%" marginLeft="4">
               <Text color="gray.500">
                 Sempre quando bater na rota <span style={theEnfase}>{`"/produto"`}</span>retornará um H1, independente de qual seja o tipo de requisição.
@@ -150,7 +144,6 @@ export const ContentMyRoutes = () =>{
           <Flex width="100%">
             <BlocoDeRoute 
               flex="1"
-              h="150px"
               whatReturned="<h1>Aceito Qualquer tipo de rota</h1>"
               thePath="/profile"
               typeRequisition={{
@@ -199,7 +192,6 @@ export const ContentMyRoutes = () =>{
           <Flex width="100%">
             <BlocoDeRoute 
               flex="1"
-              h="150px"
               whatReturned="Vou verificar o auth de profile"
               thePath="/profile/verify-auth"
               typeRequisition={{
@@ -228,7 +220,6 @@ export const ContentMyRoutes = () =>{
           <Flex width="100%">
             <BlocoDeRoute 
               flex="1"
-              h="150px"
               thePath="/profile"
               typeRequisition={{
                 type: "get",
@@ -267,7 +258,7 @@ export const ContentMyRoutes = () =>{
             Passando parametro na requisição.
           </Text>
           <Flex width="100%">
-            <BlocoDeRoute flex="1" h="150px" whatReturned="Rota Com Parametro => {$id}"thePath="/rota-com-param/{idpass}" typeRequisition={{
+            <BlocoDeRoute flex="1"  whatReturned="Rota Com Parametro => {$id}"thePath="/rota-com-param/{idpass}" typeRequisition={{
               type: "get",
               functionType: "param",
             }} />
@@ -282,14 +273,17 @@ export const ContentMyRoutes = () =>{
           </Flex>
         </Box>
         <Box lineHeight="35px" width="100%">
-          <Text color="gray.300">
-            Parametro Opcional na requisição.
-          </Text>
-          <Flex width="100%">
-            <BlocoDeRoute flex="1" h="150px" whatReturned="Se houver param eu faço algo"thePath="/rota-com-param-opcional/{idpass?}" typeRequisition={{
-              type: "get",
-              functionType: "paramOpcional",
-            }} />
+          <Flex width="100%" align="center">
+            <Box>
+              <Text color="gray.300">
+              Parametro Opcional na requisição.
+              </Text>
+              <BlocoDeRoute flex="1"  whatReturned="Se houver param eu faço algo"thePath="/rota-com-param-opcional/{idpass?}" typeRequisition={{
+                type: "get",
+                functionType: "paramOpcional",
+              }} />
+            </Box>
+
             <Box width="33%" marginLeft="4">
               <Text color="gray.500">
                 Aqui o parametro é opcional. 
@@ -329,7 +323,7 @@ export const ContentMyRoutes = () =>{
             Passando parametro na requisição.
           </Text>
           <Flex width="100%">
-            <BlocoDeRoute flex="1" h="410px" whatReturned="Rota Com Parametro => {$id}"thePath="/rota-com-param/{idpass}" typeRequisition={{
+            <BlocoDeRoute flex="1"  whatReturned="Rota Com Parametro => {$id}"thePath="/rota-com-param/{idpass}" typeRequisition={{
               type: "group",
               functionType: "group",
             }} />
