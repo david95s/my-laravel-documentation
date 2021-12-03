@@ -1,9 +1,6 @@
 import { 
   Box,
-  Flex,
-  Heading,
   Text,
-  VStack
 } from '@chakra-ui/react';
 
 export const BlocoDeRoute = ({ isTheView, typeRequisition, thePath, whatReturned, ...rest }) => {
@@ -14,17 +11,64 @@ export const BlocoDeRoute = ({ isTheView, typeRequisition, thePath, whatReturned
 
   const theGreen = { color: "#1c9745" }
 
-  const theGold = { color: "#c9ac1f",
+  const theGold = { color: "#c9ac1f" }
+
+
+  function RouteSpan(){
+    return (<>
+        <span style={theBlue}>Route</span>
+        <span style={thePink}>::</span>
+      </>)
   }
 
+  if(typeRequisition?.functionType === "group"){
+    return (
+      <Box {...rest} bg="#252a37" p="8" lineHeight="7" letterSpacing="3px" borderRadius="4" >
+      <Text> 
+        {RouteSpan()}
+        <span style={theGreen}>group</span>
+        <span>(</span>
+        <span style={theGold}>{`["prefix"=> "produto"]`}</span>
+        <span>, </span> 
+        <span style={thePink}>function</span>
+        <span> () {"{"}</span>
+      </Text>
+        {["/","limpeza", "bebidas"].map((item, index) => {
+          return (
+            <Text key={item} ml="7" mt={index === 0 ? "2" : "5"}>
+              {RouteSpan()}
+              <span style={theGreen}>get</span>
+              <span>(</span>
+              <span style={theGold}>{`"${item}"`}</span>
+              <span>, </span>
+              <span style={thePink}>function</span>
+              <span> () {"{"}</span>
+              <span></span>
+              <Text style={{marginLeft:"8px"}}> 
+                <span style={thePink}>return </span>     
+                <span style={theGold}>{'"'}Sou a rota </span>
+                <span style={{color:"#c9ac1f", textTransform: "capitalize"}}> {`${ index === 0 ? "inicial" : item }`}</span>
+                <span style={theGold}> da página de Produto{`"`};</span>
+              </Text>
+              <Text> 
+                {"}"});
+              </Text>
+            </Text>
+          )
+        })}
+      <Text> 
+        {"}"});
+      </Text>
+    </Box>
+    );
+  }
 
 
   if(typeRequisition?.functionType === "redirect"){
     return (
       <Box {...rest} bg="#252a37" p="8" lineHeight="7" letterSpacing="3px" borderRadius="4" >
         <Text> 
-          <span style={theBlue}>Route</span>
-          <span style={thePink}>::</span>
+          {RouteSpan()}
           <span style={theGreen}>get</span>
           <span>(</span>
           <span style={theGold}>{`'${thePath}'`}</span>
@@ -32,8 +76,6 @@ export const BlocoDeRoute = ({ isTheView, typeRequisition, thePath, whatReturned
           <span style={thePink}>function</span>
           <span> () {"{"}</span>
         </Text>
-        
-
         { typeRequisition.pathOrName.type === "path" ?
           (
           <Text style={{marginLeft:"8px"}}> 
@@ -67,8 +109,7 @@ export const BlocoDeRoute = ({ isTheView, typeRequisition, thePath, whatReturned
     return (
       <Box {...rest} bg="#252a37" p="8" lineHeight="7" letterSpacing="3px" borderRadius="4" >      
         <Text> 
-          <span style={theBlue}>Route</span>
-          <span style={thePink}>::</span>
+          {RouteSpan()}
           <span style={theGreen}>{typeRequisition.type}</span>
           <span>([</span>
           {typeRequisition.arrReq.map((item,index) => {
@@ -110,8 +151,7 @@ export const BlocoDeRoute = ({ isTheView, typeRequisition, thePath, whatReturned
   return (
     <Box {...rest} bg="#252a37" p="8" lineHeight="7" letterSpacing="3px" borderRadius="4" >
       <Text> 
-        <span style={theBlue}>Route</span>
-        <span style={thePink}>::</span>
+        {RouteSpan()}
         <span style={theGreen}>
           {typeRequisition?.type === "nameRedirect" ?  "get" : typeRequisition.type }
         </span>

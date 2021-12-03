@@ -296,13 +296,56 @@ export const ContentMyRoutes = () =>{
                 Repare que o que muda na sintaxe é o simbolo de interrogação <span style={theEnfase}>{`"?"`}</span>
                 que é passado no final do idpass: 
                 <span style={theEnfase}>{`"{idpass?}"`}</span>
-                É importante passar o valor inicial de id, caso ele não exista, no ex ele tem val inicial de null.
+                É importante passar o valor inicial de id, dessa forma, ao bater nessa rota e não vier o valor dele,
+                esse assumirá o valor que você escolher. No exemplo o valor inicial é de <span style={theEnfase}>null</span>.
               </Text>
             </Box>
           </Flex>
         </Box>
       </VStack>
 
+      <VStack w="100%" p="10" spacing="8" alignItems="start" bg="#12141d" border="solid 1px #181b29" borderRadius="8px">
+        <Box>
+          <Heading fontWeight="100" color="gray.400" fontSize="1.5rem" m="0px" mb="10px">
+            <Text as="span" color="laravelColor" fontSize="1rem" >#</Text>
+            <Text as="span" ml="4px">Group</Text>
+          </Heading>
+          <Text color="gray.300" lineHeight="8">
+            <span>O group é necessário quando se quer definir rotas diferentes </span>
+            <span>a partir de uma unica rota. Suponhamos que você precise de uma rota </span>
+            <span>chamada</span>
+            <span style={theEnfase}>{"/produto"}</span>
+            <span>e depois dentro de about, é necessário criar as rotas</span>
+            <span style={theEnfase}>{"/produto/limpeza"}</span>
+            <span style={theEnfase}>{"/produto/bebidas"}</span>
+            <span>Ao invés de sair criando cada rota, cria-se apenas um group defindo elas lá dentro. </span>
+            <span>Se caso na pagina about você preciar de uma home, </span>
+            <span>cria-se também a rota com</span>
+            <span style={theEnfase}>{`"/"`}</span>
+          </Text>
+        </Box>
+        <Box lineHeight="35px" width="100%">
+          <Text color="gray.300">
+            Passando parametro na requisição.
+          </Text>
+          <Flex width="100%">
+            <BlocoDeRoute flex="1" h="410px" whatReturned="Rota Com Parametro => {$id}"thePath="/rota-com-param/{idpass}" typeRequisition={{
+              type: "group",
+              functionType: "group",
+            }} />
+            <Box width="40%" marginLeft="4">
+              <Text color="gray.500">
+                Note que como as páginas de bebidas e limpeza foram definidas dentro de um group,
+                na hora de passar como argumento eu não precisei de escrever todo path e sim 
+                apenas o nome da rota.
+                Dessa forma, a rota de <span style={theEnfase}>{"/produto/limpeza"}</span>
+                e a rota de <span style={theEnfase}>{"/produto/bebidas"}</span>
+                foram definifidas automáticamente.
+              </Text>
+            </Box>
+          </Flex>
+        </Box>
+      </VStack>
     </VStack>
   )
 }
